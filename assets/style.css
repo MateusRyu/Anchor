@@ -66,10 +66,16 @@ h1 { font-size: 1.5rem; margin-bottom: 1rem; }
 input:checked + .slider { background-color: var(--primary); }
 input:checked + .slider:before { transform: translateX(26px); }
 
-#status-text {
-    font-weight: bold;
-    margin-top: 15px;
-    display: block;
+.status-text {
+    display: none;
+}
+
+#status-container.on .status-on {
+    display: inline-block; /* ou 'block', dependendo do seu layout */
+}
+
+#status-container.off .status-off {
+    display: inline-block;
 }
 
 .on { color: #059669; }

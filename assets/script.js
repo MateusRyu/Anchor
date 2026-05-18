@@ -1,11 +1,10 @@
 const toggle = document.getElementById('protection-toggle');
-const statusText = document.getElementById('status-text');
+const statusContainer = document.getElementById('status-container');
 const favicons = document.querySelectorAll("link[rel*='icon']");
 
 function preventClose(e) {
     if (toggle.checked) {
         e.preventDefault();
-        e.returnValue = ''; // Exibe o alerta padrão do navegador
     }
 }
 
@@ -25,12 +24,10 @@ window.addEventListener('beforeunload', preventClose);
 
 toggle.addEventListener('change', () => {
     if (toggle.checked) {
-        statusText.innerText = "Proteção ATIVADA ✅";
-        statusText.className = "on";
+        statusContainer.className = "on";
         changeFavicon('protected')
     } else {
-        statusText.innerText = "Proteção Desativada ❌";
-        statusText.className = "off";
+        statusContainer.className = "off";
         changeFavicon('unprotected')
     }
 });
